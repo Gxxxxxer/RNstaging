@@ -1,0 +1,63 @@
+source 'git@git.guahao-inc.com:iOS-Libary/WYPodRepo.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+target 'MTCAPP' do
+    
+    #基础组件
+    pod 'WYBaseUI', :git => 'git@git.guahao-inc.com:iOS-Libary/WYBaseUI.git', :branch => 'National/dev_shilei'
+    pod 'WYMediator', :git => 'git@git.guahao-inc.com:iOS-Libary/WYMediator.git'
+    pod 'WYRACMVVM', :git => 'git@git.guahao-inc.com:iOS-Libary/WYRACMVVM.git'
+    pod 'WYMessagesView', :git => 'git@git.guahao-inc.com:iOS-Libary/WYMessagesView.git', :branch => 'WYMTC/dev'
+    pod 'WYKit', :git => 'git@git.guahao-inc.com:iOS-Libary/WYKit.git', :branch => 'dev'
+    pod 'WYTask', :git => 'git@git.guahao-inc.com:iOS-Libary/WYTask.git', :branch => 'National/dev'
+    pod 'WYControlSet', :git => 'git@git.guahao-inc.com:iOS-Libary/WYControlSet.git', :branch => 'National/dev'
+    pod 'WYMTCResourceModule', :git => 'git@git.guahao-inc.com:iOS-MTC/WYMTCResourceModule.git', :branch => 'dev'
+
+    #(业务组件)
+    pod 'WYMTCLoginModule', :git => 'git@git.guahao-inc.com:iOS-MTC/WYMTCLoginModule.git', :branch => 'dev'
+    pod 'WYMTCWebModuleBusiness', :git => 'git@git.guahao-inc.com:iOS-MTC/WYMTCWebModuleBusiness.git', :branch => 'dev'
+    pod 'WYMTCPersonalModule', :git => 'git@git.guahao-inc.com:iOS-MTC/WYMTCPersonalModule.git', :branch => 'dev'
+    pod 'WYHostConfigResourceMTC',:configurations => ['Debug'], :git => 'git@git.guahao-inc.com:iOS-Libary/WYHostConfig.git', :branch => 'WYMTC/dev'
+    pod 'WYMTCConsultModule', :git => 'git@git.guahao-inc.com:iOS-MTC/WYMTCConsultModule.git', :branch => 'dev'
+    pod 'WYMessagesDoctorBusiness', :git => 'git@git.guahao-inc.com:iOS-Module/WYMessagesDoctorBusiness.git', :branch =>'WYMTC/dev'
+    pod 'WYDoctorConsultModule', :git => 'git@git.guahao-inc.com:iOS-Module/WYDoctorConsultModule.git', :branch => 'MTC/dev'
+
+    #第三方库
+    pod 'MGSwipeTableCell', '1.5.6'
+    pod 'YYModel', '1.0.4'
+    pod 'AFNetworking', '3.1.0'
+    pod 'WCDB', '~> 1.0.4'
+
+   #WYMTCWebModuleBusiness依赖
+   pod 'Masonry', '1.1.0'
+   pod 'MBProgressHUD', '~> 1.0.0'
+   pod 'SDWebImage', '3.8.2'
+   pod 'FCFileManager', '1.0.18'
+   pod 'SSZipArchive', '1.7'
+   pod 'WebViewJavascriptBridge', '~> 6.0.2'
+   pod 'WYProgressHUD', :git => 'git@git.guahao-inc.com:iOS-Libary/WYProgressHUD.git'
+   pod 'WYActivityIndicator', :git => 'git@git.guahao-inc.com:iOS-Libary/WYActivityIndicator.git'
+   pod 'WYWebModule', :git => 'git@git.guahao-inc.com:iOS-Libary/WYWebModule.git', :branch => 'dev_shilei'
+   pod 'GCDWebServer', '~> 3.0'
+   pod 'WYPullToRefresh'
+   
+   # EChat相关
+   pod 'EChatFramework', '1.0.6'
+   pod 'CocoaLumberjack', '2.3.0'
+   pod 'QBPopupMenu', '2.0'
+   pod 'Reachability', '1.0.0'
+   pod 'CocoaAsyncSocket', '7.6.0'
+   pod 'SVProgressHUD', '2.0.3'
+   pod 'WYDoctorMessageNoticeModule' , :git => 'git@git.guahao-inc.com:iOS-Module/WYDoctorMessageNoticeModule.git',  :branch => 'WYMTC/dev'
+   pod 'WYVideoVoiceModule', :git => 'git@git.guahao-inc.com:iOS-Module/WYVideoVoiceModule.git', :branch => 'National/dev'
+   pod 'WYTechBridgeSDK', :git => 'git@git.guahao-inc.com:iOS-Libary/WYTechBridgeSDK.git', :branch => 'National/dev'
+
+end
+
+post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+    end
+end
