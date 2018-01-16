@@ -13,7 +13,6 @@ import {
 } from "react-native";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import codePush from 'react-native-code-push'
 import * as homeActions from '../../app/actions/home'
 
 import Button from '../../components/Button'
